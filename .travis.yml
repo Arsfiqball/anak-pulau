@@ -1,0 +1,14 @@
+language: node_js
+node_js: 6
+script:
+  # Put a data to osm.json, as an example: use Kalimantan
+  - mkdir build/osmdata
+  - wget -O build/osmdata/osm.json "http://overpass-api.de/api/interpreter?data=[out:json];relation(3986083);(._;>;);out meta;"
+  # Building Data
+  - sh prepare.sh
+  # Get and store names into static json file
+  - mkdir build/contributors
+  - node scripts/get-names.js > build/contributors/Kalimantan.json
+after_success:
+  # Deploy gh-pages
+  - sh deploy.sh
