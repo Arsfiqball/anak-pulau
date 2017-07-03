@@ -1,5 +1,4 @@
 git checkout -b gh-pages
-node scripts/unignore.js
 git add .
 git commit -am "Updated at `date`"
 

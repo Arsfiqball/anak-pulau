@@ -9,6 +9,5 @@ script:
   # Get and store names into static json file
   - mkdir build/contributors
   - node scripts/get-names.js > build/contributors/Kalimantan.json
-after_success:
   # Deploy gh-pages
   - sh deploy.sh
